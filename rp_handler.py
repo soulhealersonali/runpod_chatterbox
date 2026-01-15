@@ -85,16 +85,16 @@ def audio_tensor_to_base64(audio_tensor, sample_rate):
         raise
 
 
-def initialize_model():
-    global model
+# def initialize_model():
+  #  global model
     
-    if model is not None:
-        print("Model already initialized")
-        return model
+   # if model is not None:
+    #    print("Model already initialized")
+     #   return model
     
-    print("Initializing ChatterboxTTS model...")
-    model = ChatterboxTTS.from_pretrained(device="cuda")
-    print("Model initialized")
+    # print("Initializing ChatterboxTTS model...")
+    # model = ChatterboxTTS.from_pretrained(device="cuda")
+    # print("Model initialized")
 
 def download_youtube_audio(url, output_path="./downloads", audio_format="mp3", duration_limit=60):
     """
@@ -162,6 +162,6 @@ def download_youtube_audio(url, output_path="./downloads", audio_format="mp3", d
         print(f"An error occurred: {str(e)}")
         return None
 
-if __name__ == '__main__':
-    initialize_model()
+# if __name__ == '__main__':
+  #  initialize_model()
     runpod.serverless.start({'handler': handler })
