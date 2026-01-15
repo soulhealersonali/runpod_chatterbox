@@ -17,6 +17,12 @@ def handler(event, responseFormat="base64"):
     prompt = input.get('prompt')  
     yt_url = input.get('yt_url')  
 
+    # 🔥 GPU EXISTS HERE
+    if model is None:
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        print("Loading model on device:", device)
+        model = ChatterboxTTS.from_pretrained(device=device)
+    
     print(f"New request. Prompt: {prompt}")
     
     try:
